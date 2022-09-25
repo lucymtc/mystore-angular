@@ -20,7 +20,14 @@ tmtags
 *.un~
 Session.vim
 *.swp
-.vscode
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
 
 # Mac OSX
 .DS_Store
