@@ -14,7 +14,9 @@
     "prettier/prettier": 2 ,
     "no-use-before-define": ["error", { "functions": true, "classes": true }],
     "no-var": "error",
-    "prefer-const": "error"
+    "prefer-const": "error",
+    "no-empty-function": "off",
+    "@typescript-eslint/no-empty-function": "off"
   },
   "parserOptions": {
     "ecmaVersion": 6,
