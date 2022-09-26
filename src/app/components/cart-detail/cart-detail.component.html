@@ -1,0 +1,16 @@
+<div class="cart-container">
+    <div class="cart-item-details">
+        <div class="cart-item" *ngFor="let cartProduct of cartProducts">
+            <img *ngIf="cartProduct.product.image" src="{{cartProduct.product.image}}" />
+            <div class="cart-panel">
+                <p>{{cartProduct.product.name}}</p>
+                <p>{{cartProduct.product.price}}€</p>
+                <p>Ammount: {{cartProduct.quantity}}<br>
+                    <app-quantity-dropdown [product]="cartProduct.product" [showAddButton]="false"></app-quantity-dropdown>
+                </p>
+                <p class="item-total-price">{{ cartProduct.product.price * cartProduct.quantity }}€</p>
+            </div>
+        </div>
+    </div>
+   
+</div>

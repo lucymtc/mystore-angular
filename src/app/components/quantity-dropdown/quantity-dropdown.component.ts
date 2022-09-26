@@ -9,14 +9,20 @@ import { Product, productDefinition } from 'src/app/models/Product';
 })
 export class QuantityDropdownComponent implements OnInit {
   @Input() product: Product;
+  @Input() showAddButton: boolean;
+  @Input() selectedOption: number;
   productQuantityOptions = new Array(12);
   quantity = 0;
 
   constructor(private cartService: CartService) {
     this.product = productDefinition;
+    this.showAddButton = true;
+    this.selectedOption = 0;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.selectedOption);
+  }
 
   setQuantity(e: Event): void {
     const value = (e.target as HTMLSelectElement).value;

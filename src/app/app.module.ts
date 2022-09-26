@@ -10,6 +10,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { QuantityDropdownComponent } from './components/quantity-dropdown/quantity-dropdown.component';
+import { CartDetailComponent } from './components/cart-detail/cart-detail.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { QuantityDropdownComponent } from './components/quantity-dropdown/quanti
     HeaderComponent,
     ProductDetailComponent,
     PageNotFoundComponent,
-    QuantityDropdownComponent
+    QuantityDropdownComponent,
+    CartDetailComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],

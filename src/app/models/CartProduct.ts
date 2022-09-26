@@ -1,11 +1,11 @@
-import { Product } from './Product';
+import { Product, productDefinition } from './Product';
 
 export class CartProduct {
-  product: Product | null;
+  product: Product;
   quantity: number;
 
   constructor() {
-    this.product = null;
+    this.product = productDefinition;
     this.quantity = 0;
   }
 }
