@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from 'src/app/services/cart.service';
 import { CartProduct } from 'src/app/models/CartProduct';
+import { Product } from 'src/app/models/Product';
 
 @Component({
   selector: 'app-cart-detail',
@@ -16,6 +17,9 @@ export class CartDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.cartProducts = this.cartService.getCartProducts();
-    console.log(this.cartProducts);
+  }
+
+  removeFromCart(product: Product): void {
+    this.cartProducts = this.cartService.updateProductInCart(product, 0);
   }
 }

@@ -25,7 +25,6 @@ export class CartService {
    */
   addProductToCart(product: Product, quantity: number): CartProduct[] {
     const cartProductsList = this.getCartProducts();
-    console.log(cartProductsList);
 
     const foundIndex = cartProductsList.findIndex(
       item => item?.product?.id === product.id
@@ -36,6 +35,33 @@ export class CartService {
     } else {
       cartProductsList[foundIndex].quantity =
         cartProductsList[foundIndex].quantity + quantity;
+    }
+
+    window.localStorage.setItem(
+      this.storageName,
+      JSON.stringify(cartProductsList)
+    );
+
+    return cartProductsList;
+  }
+
+  /**
+   * Update product quantity in cart, remove if quantity is 0.
+   */
+  updateProductInCart(product: Product, quantity: number): CartProduct[] {
+    const cartProductsList = this.getCartProducts();
+    const foundIndex = cartProductsList.findIndex(
+      item => item?.product?.id === product.id
+    );
+
+    if (-1 === foundIndex) {
+      return cartProductsList;
+    }
+
+    if (quantity === 0) {
+      cartProductsList.splice(foundIndex, 1);
+    } else {
+      cartProductsList[foundIndex].quantity = quantity;
     }
 
     window.localStorage.setItem(

@@ -9,6 +9,7 @@
                     <app-quantity-dropdown [product]="cartProduct.product" [showAddButton]="false" [selectedQuantity]="cartProduct.quantity"></app-quantity-dropdown>
                 </p>
                 <p class="item-total-price">{{ cartProduct.product.price * cartProduct.quantity }}€</p>
+                <button (click)="removeFromCart(cartProduct.product)" type="button">Remove</button>
             </div>
         </div>
     </div>
