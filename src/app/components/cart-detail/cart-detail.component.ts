@@ -11,6 +11,9 @@ import { Product } from 'src/app/models/Product';
 export class CartDetailComponent implements OnInit {
   cartProducts: CartProduct[];
   totalPrice = 0;
+  fullName = '';
+  address = '';
+  creditCard = '';
 
   constructor(private cartService: CartService) {
     this.cartProducts = [];
@@ -34,5 +37,12 @@ export class CartDetailComponent implements OnInit {
    */
   removeFromCart(product: Product): void {
     this.cartProducts = this.cartService.updateProductInCart(product, 0);
+  }
+
+  /**
+   * On Sumbit checkout form.
+   */
+  onSubmit(): void {
+    alert(`${this.fullName} your order is being processed!`);
   }
 }

@@ -1,4 +1,4 @@
-<div class="cart-container">
+<div *ngIf="cartProducts.length; else emptyTemplate" class="cart-container">
     <div class="cart-item-details">
         <div class="cart-item" *ngFor="let cartProduct of cartProducts">
             <img *ngIf="cartProduct.product.image" src="{{cartProduct.product.image}}" />
@@ -13,5 +13,25 @@
         </div>
         <h3>Total: {{totalPrice}}€</h3>
     </div>
-   
+    <form class="form-margin" #form="ngForm" (ngSubmit)="onSubmit()">
+        <h3> Checkout </h3>
+        <p>
+            <label>Full Name</label><br />
+            <input type='text' name='fullName' required minlength="3" [(ngModel)]="fullName" placeholder="(minimum 3 characters)">
+        </p>
+        <p>
+            <label>Address</label><br />
+            <input type='text' name='address' required minlength="6" [(ngModel)]="address" placeholder="(minimum 6 characters)">
+        </p>
+        <p>
+            <label>Credit Card Number</label><br />
+            <input type='text' name='creditCard' required  minlength="16" [(ngModel)]="creditCard" maxlength="16" placeholder="(16-digit number)">
+        </p>
+        <input [disabled]="form.invalid" type='submit' value="Submit" />
+    </form>
 </div>
+<ng-template #emptyTemplate>
+    <div class="empty-cart-message">
+        Empty cart, please browse our list of products
+    </div>
+</ng-template>

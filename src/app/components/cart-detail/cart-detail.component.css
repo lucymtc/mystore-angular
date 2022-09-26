@@ -21,11 +21,6 @@ img {
   margin-left: 80px;
 }
 
-.number-input {
-  width: 80px;
-  text-align: center;
-}
-
 .cart-container {
   display: flex;
   flex-direction: row;
