@@ -4,7 +4,13 @@
   color: #fff;
   padding: 12px;
 }
-
+.navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
 a {
+  display: inline-block;
+  margin: 5px;
   color: #ffffff;
 }
