@@ -8,7 +8,7 @@
                 <p>
                     <app-quantity-dropdown [product]="cartProduct.product" [showAddButton]="false" [selectedQuantity]="cartProduct.quantity"></app-quantity-dropdown>
                 </p>
-                <button (click)="removeFromCart(cartProduct.product)" type="button">Remove</button>
+                <button (click)="removeFromCart(cartProduct.product)" type="button" class="btn btn-primary">Remove</button>
             </div>
         </div>
         <h3>Total: {{totalPrice}}€</h3>
