@@ -7,13 +7,19 @@ import { AppComponent } from './app.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductItemComponent } from './components/product-item/product-item.component';
 import { HeaderComponent } from './components/header/header.component';
+import { ProductDetailComponent } from './components/product-detail/product-detail.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { QuantityDropdownComponent } from './components/quantity-dropdown/quantity-dropdown.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductListComponent,
     ProductItemComponent,
-    HeaderComponent
+    HeaderComponent,
+    ProductDetailComponent,
+    PageNotFoundComponent,
+    QuantityDropdownComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],

@@ -1,17 +1,11 @@
 import { Product } from './Product';
 
 export class CartProduct {
-  product: Product;
+  product: Product | null;
   quantity: number;
 
   constructor() {
-    this.product = {
-      id: 0,
-      name: '',
-      price: 0,
-      image: '',
-      description: ''
-    };
+    this.product = null;
     this.quantity = 0;
   }
 }

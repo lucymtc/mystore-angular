@@ -21,6 +21,7 @@ export class CartService {
    */
   addProductToCart(product: Product, quantity: number): CartProduct[] {
     this.cartProductsList.push({ product, quantity });
+    console.log(this.cartProductsList);
     return this.cartProductsList;
   }
 }

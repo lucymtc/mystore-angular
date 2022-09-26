@@ -13,3 +13,11 @@ export class Product {
     this.description = '';
   }
 }
+
+export const productDefinition = {
+  id: 0,
+  name: '',
+  image: '',
+  price: 0,
+  description: ''
+};

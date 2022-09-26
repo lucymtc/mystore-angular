@@ -1,13 +1,6 @@
 <div class="product-container">
     <img class="product-image" src="{{product.image}}" alt="{{product.name}}" />
-    <h3>{{product.name}}</h3>
+    <h3><a href="/product/{{product.id}}">{{product.name}}</a></h3>
     <p>{{product.price}}€</p>
-    <form (ngSubmit)="onSubmit(product)">
-        <select class="select-input" name="quantity" [(ngModel)]="quantity" (change)="setQuantity($event)">
-            <option *ngFor="let quantityOpt of productQuantityOptions; let i=index" value="{{i + 1}}">
-                {{i + 1}}
-            </option>
-        </select>
-        <button>Add To Cart</button>
-    </form>
+    <app-quantity-dropdown [product]="product"></app-quantity-dropdown>
 </div>

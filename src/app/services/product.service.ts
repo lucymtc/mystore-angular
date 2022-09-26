@@ -11,7 +11,6 @@ export class ProductService {
 
   /**
    * Get list of products from asstes/data.json
-   * @todo Connect to the store database
    */
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>('assets/data.json');

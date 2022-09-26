@@ -1,0 +1,8 @@
+<div class="detail-container">
+    <img src="{{product.image}}" alt="{{product.name}}" />
+    <div class="detail-item">
+        <h1>{{product.name}}</h1>
+        <p>{{product.price}}€</p>
+        <app-quantity-dropdown [product]="product"></app-quantity-dropdown>
+    </div>
+</div>
