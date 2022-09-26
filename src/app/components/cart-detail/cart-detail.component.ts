@@ -10,15 +10,28 @@ import { Product } from 'src/app/models/Product';
 })
 export class CartDetailComponent implements OnInit {
   cartProducts: CartProduct[];
+  totalPrice = 0;
 
   constructor(private cartService: CartService) {
     this.cartProducts = [];
   }
 
+  /**
+   * Set cart products data.
+   */
   ngOnInit(): void {
     this.cartProducts = this.cartService.getCartProducts();
+    this.cartProducts.forEach(item => {
+      this.totalPrice = this.totalPrice + item.product.price * item.quantity;
+    });
+
+    // Round to 2 decimals.
+    this.totalPrice = Math.round(this.totalPrice * 100) / 100;
   }
 
+  /**
+   * Remove product from cart.
+   */
   removeFromCart(product: Product): void {
     this.cartProducts = this.cartService.updateProductInCart(product, 0);
   }
