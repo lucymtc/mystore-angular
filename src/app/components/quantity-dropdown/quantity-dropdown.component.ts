@@ -10,29 +10,28 @@ import { Product, productDefinition } from 'src/app/models/Product';
 export class QuantityDropdownComponent implements OnInit {
   @Input() product: Product;
   @Input() showAddButton: boolean;
-  @Input() selectedOption: number;
   productQuantityOptions = new Array(12);
-  quantity = 0;
+  @Input() selectedQuantity = 0;
 
   constructor(private cartService: CartService) {
     this.product = productDefinition;
     this.showAddButton = true;
-    this.selectedOption = 0;
+    this.selectedQuantity = 0;
   }
 
   ngOnInit(): void {
-    console.log(this.selectedOption);
+    console.log(this.selectedQuantity);
   }
 
   setQuantity(e: Event): void {
     const value = (e.target as HTMLSelectElement).value;
-    this.quantity = parseInt(value, 10);
+    this.selectedQuantity = parseInt(value, 10);
   }
 
   /**
    * On Submit form Add To Cart, add product to the cart items list.
    */
   onSubmit(product: Product): void {
-    this.cartService.addProductToCart(product, this.quantity);
+    this.cartService.addProductToCart(product, this.selectedQuantity);
   }
 }
