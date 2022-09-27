@@ -6,7 +6,7 @@
                 <p>{{cartProduct.product.name}}</p>
                 <p>{{cartProduct.product.price}}€</p>
                 <p>
-                    <app-quantity-dropdown [product]="cartProduct.product" [showAddButton]="false" [selectedQuantity]="cartProduct.quantity"></app-quantity-dropdown>
+                    <app-quantity-dropdown [product]="cartProduct.product" [showAddButton]="false" [selectedQuantity]="cartProduct.quantity" (changeTotalPrice)="onChangePrice()"></app-quantity-dropdown>
                 </p>
                 <button (click)="removeFromCart(cartProduct.product)" type="button" class="btn btn-primary">Remove</button>
             </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CartService } from 'src/app/services/cart.service';
 import { Product, productDefinition } from 'src/app/models/Product';
 
@@ -12,6 +12,7 @@ export class QuantityDropdownComponent implements OnInit {
   @Input() showAddButton: boolean;
   productQuantityOptions = new Array(12);
   @Input() selectedQuantity = 0;
+  @Output() changeTotalPrice: EventEmitter<number> = new EventEmitter();
 
   constructor(private cartService: CartService) {
     this.product = productDefinition;
@@ -29,6 +30,8 @@ export class QuantityDropdownComponent implements OnInit {
     this.selectedQuantity = parseInt(value, 10);
     if (!this.showAddButton) {
       this.cartService.updateProductInCart(product, this.selectedQuantity);
+      console.log('TOTAL PRICE!!', this.cartService.getTotalPrice());
+      this.changeTotalPrice.emit();
     }
   }
 

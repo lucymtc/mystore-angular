@@ -24,12 +24,7 @@ export class CartDetailComponent implements OnInit {
    */
   ngOnInit(): void {
     this.cartProducts = this.cartService.getCartProducts();
-    this.cartProducts.forEach(item => {
-      this.totalPrice = this.totalPrice + item.product.price * item.quantity;
-    });
-
-    // Round to 2 decimals.
-    this.totalPrice = Math.round(this.totalPrice * 100) / 100;
+    this.totalPrice = this.cartService.getTotalPrice();
   }
 
   /**
@@ -37,6 +32,7 @@ export class CartDetailComponent implements OnInit {
    */
   removeFromCart(product: Product): void {
     this.cartProducts = this.cartService.updateProductInCart(product, 0);
+    this.totalPrice = this.cartService.getTotalPrice();
   }
 
   /**
@@ -44,5 +40,9 @@ export class CartDetailComponent implements OnInit {
    */
   onSubmit(): void {
     alert(`${this.fullName} your order is being processed!`);
+  }
+
+  onChangePrice(): void {
+    this.totalPrice = this.cartService.getTotalPrice();
   }
 }

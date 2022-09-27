@@ -7,6 +7,7 @@ import { CartProduct } from '../models/CartProduct';
 })
 export class CartService {
   storageName = 'mystorecart';
+
   constructor() {}
 
   /**
@@ -70,5 +71,19 @@ export class CartService {
     );
 
     return cartProductsList;
+  }
+
+  /**
+   * Calculate and return the total price of the cart.
+   */
+  getTotalPrice(): number {
+    const cartProductsList = this.getCartProducts();
+    let price = 0;
+    cartProductsList.forEach(item => {
+      price = price + item.product.price * item.quantity;
+    });
+
+    // Round to 2 decimals.
+    return Math.round(price * 100) / 100;
   }
 }
