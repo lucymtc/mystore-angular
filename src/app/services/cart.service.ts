@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../models/Product';
 import { CartProduct } from '../models/CartProduct';
+import { updateTotalProducts } from 'src/app/helpers';
 
 @Injectable({
   providedIn: 'root'
@@ -43,6 +44,8 @@ export class CartService {
       JSON.stringify(cartProductsList)
     );
 
+    updateTotalProducts(this.getTotalProducts());
+
     return cartProductsList;
   }
 
@@ -69,6 +72,8 @@ export class CartService {
       this.storageName,
       JSON.stringify(cartProductsList)
     );
+
+    updateTotalProducts(this.getTotalProducts());
 
     return cartProductsList;
   }

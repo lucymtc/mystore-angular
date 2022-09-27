@@ -19,6 +19,7 @@ a {
 }
 
 .items-in-cart-message {
+  display: inline;
   font-size: 14px;
   font-weight: bold;
   background-color: #fff;
