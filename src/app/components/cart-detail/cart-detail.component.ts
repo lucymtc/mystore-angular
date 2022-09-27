@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CartService } from 'src/app/services/cart.service';
 import { CartProduct } from 'src/app/models/CartProduct';
 import { Product } from 'src/app/models/Product';
@@ -15,7 +16,7 @@ export class CartDetailComponent implements OnInit {
   address = '';
   creditCard = '';
 
-  constructor(private cartService: CartService) {
+  constructor(private cartService: CartService, private router: Router) {
     this.cartProducts = [];
   }
 
@@ -37,11 +38,16 @@ export class CartDetailComponent implements OnInit {
 
   /**
    * On Sumbit checkout form.
+   * @todo on real world app we would save the order in a database and send order ID
    */
-  onSubmit(): void {
-    alert(`${this.fullName} your order is being processed!`);
+  onSubmitCheckout(): void {
+    this.cartService.destroyCart();
+    this.router.navigate([`/thank-you/${this.fullName}/${this.totalPrice}`]);
   }
 
+  /**
+   * Update totalPrice.
+   */
   onChangePrice(): void {
     this.totalPrice = this.cartService.getTotalPrice();
   }

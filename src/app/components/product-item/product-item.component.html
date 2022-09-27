@@ -1,6 +1,6 @@
 <div class="product-container">
     <img class="product-image" src="{{product.image}}" alt="{{product.name}}" />
-    <h3><a href="/product/{{product.id}}">{{product.name}}</a></h3>
+    <h3><a routerLink="/product/{{product.id}}">{{product.name}}</a></h3>
     <p>{{product.price}}€</p>
     <app-quantity-dropdown [product]="product"></app-quantity-dropdown>
 </div>

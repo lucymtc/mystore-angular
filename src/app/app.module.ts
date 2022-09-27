@@ -12,6 +12,7 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { QuantityDropdownComponent } from './components/quantity-dropdown/quantity-dropdown.component';
 import { CartDetailComponent } from './components/cart-detail/cart-detail.component';
+import { ThankYouComponent } from './components/thank-you/thank-you.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CartDetailComponent } from './components/cart-detail/cart-detail.compon
     ProductDetailComponent,
     PageNotFoundComponent,
     QuantityDropdownComponent,
-    CartDetailComponent
+    CartDetailComponent,
+    ThankYouComponent
   ],
   imports: [
     BrowserModule,

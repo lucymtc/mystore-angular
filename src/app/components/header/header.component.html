@@ -1,8 +1,8 @@
 <div class="header" [ngStyle]="{'padding-bottom': totalItems > 0 ? '10px' : '30px' }">
     <h1>My Store</h1>
     <div class="navigation">
-        <a href="/">Products List</a>
-        <a href="/cart">Cart</a>
+        <a routerLink="/">Products List</a>
+        <a routerLink="/cart">Cart</a>
     </div>
    <p class="items-in-cart-message"> You have <span>{{totalItems}}</span> in the cart</p>
 </div>

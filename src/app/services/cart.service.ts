@@ -102,4 +102,12 @@ export class CartService {
       0
     );
   }
+
+  /**
+   * Removes the localstorage cart.
+   */
+  destroyCart(): void {
+    window.localStorage.removeItem(this.storageName);
+    updateTotalProducts(0);
+  }
 }
