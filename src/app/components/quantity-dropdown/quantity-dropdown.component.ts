@@ -27,9 +27,8 @@ export class QuantityDropdownComponent implements OnInit {
   /**
    * Set product quantity on dropdown change.
    */
-  setQuantity(product: Product, e: Event): void {
-    const value = (e.target as HTMLSelectElement).value;
-    this.selectedQuantity = parseInt(value, 10);
+  setQuantity(product: Product, value: number): void {
+    this.selectedQuantity = value;
     if (!this.showAddButton) {
       this.cartService.updateProductInCart(product, this.selectedQuantity);
       this.changeTotalPrice.emit();

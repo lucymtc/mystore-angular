@@ -1,5 +1,5 @@
 <form (ngSubmit)="onSubmit(product)">
-    <select class="select-input" name="quantity" [(ngModel)]="selectedQuantity" (click)="resetLabel()" (change)="setQuantity(product, $event)">
+    <select class="select-input" name="quantity" [(ngModel)]="selectedQuantity" (click)="resetLabel()" (ngModelChange)="setQuantity(product, $event)">
         <option value="0">Quantity</option>
         <option *ngFor="let quantityOpt of productQuantityOptions; let i=index" value="{{i + 1}}">
             {{i + 1}}
