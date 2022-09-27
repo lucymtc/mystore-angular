@@ -86,4 +86,15 @@ export class CartService {
     // Round to 2 decimals.
     return Math.round(price * 100) / 100;
   }
+
+  /**
+   * Calculate and return the total of products in the cart.
+   */
+  getTotalProducts(): number {
+    const cartProductsList = this.getCartProducts();
+    return cartProductsList.reduce(
+      (prevValue, product) => prevValue + product.quantity,
+      0
+    );
+  }
 }
