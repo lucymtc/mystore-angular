@@ -14,6 +14,7 @@ export class QuantityDropdownComponent implements OnInit {
   @Output() changeTotalPrice: EventEmitter<number> = new EventEmitter();
 
   productQuantityOptions = new Array(12);
+  buttonLabel = 'Add To Cart';
 
   constructor(private cartService: CartService) {
     this.product = productDefinition;
@@ -40,5 +41,10 @@ export class QuantityDropdownComponent implements OnInit {
    */
   onSubmit(product: Product): void {
     this.cartService.addProductToCart(product, this.selectedQuantity);
+    this.buttonLabel = 'Added!';
+  }
+
+  resetLabel(): void {
+    this.buttonLabel = 'Add To Cart';
   }
 }

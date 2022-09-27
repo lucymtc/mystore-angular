@@ -1,4 +1,9 @@
 .select-input {
   width: 108px; 
   margin-bottom: 8px;
+  width: 120px;
+}
+
+button.add-to-cart {
+  width: 120px;
 }
