@@ -3,14 +3,14 @@ export class Product {
   name: string;
   price: number;
   image: string;
-  description: string;
+  short_description: string;
 
   constructor() {
     this.id = 0;
     this.name = '';
     this.price = 0;
     this.image = '';
-    this.description = '';
+    this.short_description = '';
   }
 }
 
@@ -19,5 +19,5 @@ export const productDefinition = {
   name: '',
   image: '',
   price: 0,
-  description: ''
+  short_description: ''
 };
